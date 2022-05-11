@@ -163,7 +163,7 @@ class SardanaNeXus(Source):
         for field in entry.measurement:
             # do not add data which is already in the pre-scan snapshot
             # that is tricky if it is in the snapshot and scanned ...
-            if field != 'pre_scan_snapshot':
+            if field not in ['pre_scan_snapshot','ge']:
                 data_list.append(entry.measurement[field])
                 dtype_list.append((field,
                                    entry.measurement[field].dtype,
